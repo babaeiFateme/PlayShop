@@ -44,7 +44,17 @@ const theme = createTheme({
     cssVariables: {
         colorSchemeSelector: 'class',
     },
-    
+    palette: {
+        primary: {
+            main: '#3c6e71',
+            contrastText: '#fff',
+        },
+        secondary: {
+            main: '#353535',
+            contrastText: '#fff',
+        },
+    },
+
     typography: {
         fontFamily: PinarFont.style.fontFamily,
     },

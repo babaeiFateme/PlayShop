@@ -3,7 +3,7 @@ const Home = () => {
     <main>
       <h1 className="font-semibold bg-black-green text-3xl">
 
-        page
+        Home
       </h1>
     </main>
   );
