@@ -14,7 +14,6 @@ const NotFound = () => {
                 className='mx-auto'
 
             />
-            {/* <Link href="/" >Return Home</Link> */}
             <Button
                 component={NextLink}
                 href="/"
