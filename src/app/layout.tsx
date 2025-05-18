@@ -4,7 +4,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from "@mui/material";
 import theme from "@/core/utils/theme/theme"
-import { PinarFont } from "@/core/utils/fonts/PinarFont";
 
 
 export const metadata: Metadata = {
