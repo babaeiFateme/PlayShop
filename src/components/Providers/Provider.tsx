@@ -10,7 +10,7 @@ const Provider = ({ children }: ProviderProps) => {
     return (
         <>
             <Header />
-            <main>
+            <main className="!min-h-[calc(100vh_-_700px)] pb-[110px]">
                 {children}
             </main>
             <Footer />

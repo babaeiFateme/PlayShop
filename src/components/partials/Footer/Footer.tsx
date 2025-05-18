@@ -1,200 +1,112 @@
 import React from 'react'
 import logo from "../../../../public/images/_general/logo.png"
 import Image from 'next/image'
-import { Button } from '@mui/material'
-import NextLink from "next/link"
+import FooterSection from '../../organisms/Footer/FooterSection'
+import FooterInfo from '../../organisms/Footer/resources/content/FooterInfo'
+import FooterBottom from '@/components/organisms/Footer/FooterBottom'
+import GPay from '../../../../public/images/_general/G Pay.png'
+import master from '../../../../public/images/_general/Mastercard.png'
+import applePay from '../../../../public/images/_general/ Pay.png'
+import visa from '../../../../public/images/_general/Visa.png'
+import paypal from '../../../../public/images/_general/Paypal.png'
+import Subscribe from '@/components/organisms/Footer/Subscribe'
+
 const Footer = () => {
-
-    const CompanyItems = [
-        {
-            id: 1,
-            label: 'About',
-            href: '/about'
-        },
-        {
-            id: 2,
-            label: 'Features',
-            href: '/features'
-        },
-        {
-            id: 3,
-            label: 'Workers',
-            href: '/workers'
-        },
-        {
-            id: 4,
-            label: 'Career',
-            href: '/career'
-        },
-    ]
-
-    const HelpItems = [
-        {
-            id: 1,
-            label: 'Customer Support',
-            href: '/'
-        },
-        {
-            id: 2,
-            label: 'Delivery Details',
-            href: '/'
-        },
-        {
-            id: 3,
-            label: 'Terms & Conditions',
-            href: '/'
-        },
-        {
-            id: 4,
-            label: 'Privacy Policy',
-            href: '/'
-        },
-    ]
-
-    const FaqItems = [
-        {
-            id: 1,
-            label: 'Account',
-            href: '/'
-        },
-        {
-            id: 2,
-            label: 'Manage Deliveries',
-            href: '/'
-        },
-        {
-            id: 3,
-            label: 'Orders',
-            href: '/'
-        },
-        {
-            id: 4,
-            label: 'Payments',
-            href: '/'
-        },
-    ]
-    const ResourcesItems = [
-        {
-            id: 1,
-            label: 'Free eBooks',
-            href: '/'
-        },
-        {
-            id: 2,
-            label: 'Development Tutorial',
-            href: '/'
-        },
-        {
-            id: 3,
-            label: 'How to - Blog',
-            href: '/'
-        },
-        {
-            id: 4,
-            label: 'Youtube Playlist',
-            href: '/'
-        },
-    ]
-
-
     return (
-        <footer className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-[20px] bg-gray-200 p-5'>
-            <div>
-                <Image
-                    src={logo.src}
-                    alt='shop'
-                    width={200}
-                    height={150}
-                />
+        <footer className=' bg-gray-200 p-5 pt-[150px] relative'>
+            <Subscribe />
 
-                <div className='my-4'>
-                    We have clothes that suits your style and which you’re proud to wear. From women to men.
-                </div>
-
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-[20px]'>
                 <div>
-                    social link
+                    <Image
+                        src={logo.src}
+                        alt='shop'
+                        width={200}
+                        height={150}
+                    />
+
+                    <div className='my-4'>
+                        We have clothes that suits your style and which you’re proud to wear. From women to men.
+                    </div>
+
+                    <div>
+                        social link
+                    </div>
                 </div>
+
+                {FooterInfo.map((item, index) => (
+                    <FooterSection
+                        key={index}
+                        title={item.title}
+                        baseHref={item.baseHref}
+                        items={item.items}
+                    />
+                ))}
             </div>
 
-            <div>
-                <div className='font-semibold text-lg mb-4 uppercase'>Company</div>
+            <FooterBottom >
+                <hr />
+                <div className='flex justify-between items-center flex-wrap mt-4'>
+                    <div>
+                        Shop.co © 2000-2023, All Rights Reserved
+                    </div>
 
-                <ul className='*:mb-3'>
-                    {CompanyItems.map((item) => (
-                        <li key={item.id}>
-                            <Button
-                                className='!px-0'
-                                variant='text'
-                                component={NextLink}
-                                href={`company-${item.href}`}
-                                color='secondary'
-                            >
-                                {item.label}
-                            </Button>
-                        </li>
+                    <div>
+                        <div className='flex gap-2 items-center *:max-w-[50px]'>
+                            <div className='bg-white p-2 rounded-md'>
+                                <Image
+                                    src={visa.src}
+                                    alt=''
+                                    width={100}
+                                    height={100}
 
-                    ))}
-                </ul>
-            </div>
+                                />
+                            </div>
 
+                            <div className='bg-white p-2 rounded-md'>
+                                <Image
+                                    src={paypal.src}
+                                    alt=''
+                                    width={100}
+                                    height={100}
 
-            <div>
-                <div className='font-semibold text-lg mb-4 uppercase'>Help</div>
+                                />
+                            </div>
 
-                <ul className='*:mb-3'>
-                    {HelpItems.map((item) => (
-                        <li key={item.id}>
-                            <Button
-                                className='!px-0'
-                                variant='text'
-                                component={NextLink}
-                                href={`help-${item.href}`}
-                                color='secondary'
-                            >
-                                {item.label}
-                            </Button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                            <div className='bg-white p-2 rounded-md'>
+                                <Image
+                                    src={applePay.src}
+                                    alt=''
+                                    width={100}
+                                    height={100}
 
-            <div>
-                <div className='font-semibold text-lg mb-4 uppercase'>FAQ</div>
-                <ul className='*:mb-3'>
-                    {FaqItems.map((item) => (
-                        <li key={item.id}>
-                            <Button
-                                className='!px-0'
-                                variant='text'
-                                component={NextLink}
-                                href={`faq-${item.href}`}
-                                color='secondary'
-                            >
-                                {item.label}
-                            </Button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                                />
+                            </div>
 
-            <div>
-                <div className='font-semibold text-lg mb-4 uppercase'>Resources</div>
-                <ul className='*:mb-3'>
-                    {ResourcesItems.map((item) => (
-                        <li key={item.id}>
-                            <Button
-                                className='!px-0'
-                                variant='text'
-                                component={NextLink}
-                                href={`resource-${item.href}`}
-                                color='secondary'
-                            >
-                                {item.label}
-                            </Button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                            <div className='bg-white p-2 rounded-md'>
+                                <Image
+                                    src={GPay.src}
+                                    alt=''
+                                    width={100}
+                                    height={100}
+
+                                />
+                            </div>
+
+                            <div className='bg-white p-2 rounded-md'>
+                                <Image
+                                    src={master.src}
+                                    alt=''
+                                    width={100}
+                                    height={100}
+
+                                />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </FooterBottom>
         </footer>
     )
 }
