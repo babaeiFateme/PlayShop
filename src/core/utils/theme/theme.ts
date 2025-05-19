@@ -1,6 +1,24 @@
 'use client';
 import { createTheme } from '@mui/material/styles';
 import localFont from 'next/font/local';
+import { grey } from '@mui/material/colors';
+
+// theme.d.ts
+import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    custom: {
+      black: PaletteColor;
+    };
+  }
+  interface PaletteOptions {
+    custom?: {
+      black: PaletteColorOptions;
+    };
+  }
+}
+
 
 const PinarFont = localFont({
     src: [
@@ -49,11 +67,20 @@ const theme = createTheme({
             main: '#3c6e71',
             contrastText: '#fff',
         },
+
         secondary: {
             main: '#353535',
             contrastText: '#fff',
         },
+        custom: {
+            black: {
+                main: grey[900],
+                contrastText: '#fff',
+            },
+        }
     },
+
+
 
     typography: {
         fontFamily: PinarFont.style.fontFamily,

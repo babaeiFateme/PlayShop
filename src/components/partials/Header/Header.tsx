@@ -27,7 +27,7 @@ const Header = () => {
     },
   ]
   return (
-    <div className="px-2 md:px-[40px] py-6 bg-red-300 flex gap-6 items-center">
+    <div className="px-2 md:px-[40px] py-6 bg-white flex gap-6 items-center">
       <Image
         src={logo.src}
         alt='logo'

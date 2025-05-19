@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
 import img from "../../public/images/_general/404.png"
-import { Button } from '@mui/material'
+import Button from '@/components/atoms/Button/Button'
 const NotFound = () => {
     return (
         <div className='!min-h-full text-center'>
@@ -14,14 +14,13 @@ const NotFound = () => {
                 className='mx-auto'
 
             />
+            
             <Button
-                component={NextLink}
-                href="/"
                 variant="contained"
                 color="primary"
-            >
-                Return Home
-            </Button>
+                component={NextLink}
+                href="/"
+            > Return Home</Button>
         </div>
     )
 }

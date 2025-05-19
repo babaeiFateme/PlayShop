@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import Button from "@/components/atoms/Button/Button";
 import NextLink from "next/link"
 
 interface IFooterType {

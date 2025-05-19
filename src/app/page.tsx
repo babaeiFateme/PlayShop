@@ -1,12 +1,5 @@
-const Home = () => {
-  return (
-    <main>
-      <h1 className="font-semibold bg-black-green text-3xl">
+import Landing from "@/template/Landing";
 
-        Home
-      </h1>
-    </main>
-  );
-}
+const Home = () => <Landing />
 
 export default Home
