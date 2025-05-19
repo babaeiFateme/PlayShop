@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import banner from "../../../../public/images/pages/landing/Rectangle 2(3).png";
+import banner from "../../../../public/images/pages/landing/hero.png";
 import Image from "next/image";
 import { useTheme } from '@mui/material/styles';
 import Button from "@/components/atoms/Button/Button";
@@ -11,19 +11,19 @@ const Hero = () => {
 
     const approach = [
         {
-            id:1,
+            id: 1,
             value: '200+',
             label: 'International Brands'
         },
 
         {
-            id:2,
+            id: 2,
             value: '2,000+',
             label: 'High-Quality Products'
         },
 
         {
-            id:3,
+            id: 3,
             value: '30,000+',
             label: 'Happy Customers'
         },
@@ -47,6 +47,17 @@ const Hero = () => {
                 >
                     Shop Now
                 </Button>
+
+                <ul className="flex gap-4 items-center flex-wrap mt-15">
+                    {approach.map((item) => (
+                        <li key={item.id} className="flex flex-col gap-2 text-center border-l-1 border-gray-300 p-2 first:border-0">
+                            <span className="text-md lg:text-3xl font-semibold">
+                                {item.value}
+                            </span>
+                            <span className="text-gray-500">{item.label}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             <div>
@@ -55,20 +66,10 @@ const Hero = () => {
                     alt="banner"
                     width={1024}
                     height={613}
-                    className="w-full"
+                    className="w-full aspect-[4/3] object-cover"
                 />
             </div>
 
-            <ul className="flex gap-4 items-center flex-wrap mt-15">
-                {approach.map((item) => (
-                    <li key={item.id} className="flex flex-col gap-2 text-center border-l-1 border-gray-300 p-2 first:border-0">
-                        <span className="text-md lg:text-3xl font-semibold">
-                            {item.value}
-                        </span>
-                        <span className="text-gray-500">{item.label}</span>
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 };
