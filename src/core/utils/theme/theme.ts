@@ -20,41 +20,46 @@ declare module '@mui/material/styles' {
 }
 
 
-const PinarFont = localFont({
+const RubikFont = localFont({
     src: [
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-Light.woff2',
+            path: '../../../../public/fonts/rubik/Rubik-Light.ttf',
             weight: '300',
             style: 'normal',
         },
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-Regular.woff2',
+            path: '../../../../public/fonts/rubik/Rubik-Regular.ttf',
             weight: '400',
             style: 'normal',
         },
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-Medium.woff2',
+            path: '../../../../public/fonts/rubik/Rubik-Medium.ttf',
             weight: '500',
             style: 'normal',
         },
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-SemiBold.woff2',
+            path: '../../../../public/fonts/rubik/Rubik-SemiBold.ttf',
             weight: '600',
             style: 'normal',
         },
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-Bold.woff2',
+            path: '../../../../public/fonts/rubik/Rubik-Bold.ttf',
+            weight: '700',
+            style: 'normal',
+        },
+        {
+            path: '../../../../public/fonts/rubik/Rubik-ExtraBold.ttf',
             weight: '800',
             style: 'normal',
         },
         {
-            path: '../../../../public/fonts/pinar/woff2/Pinar-FD-Black.woff2',
-            weight: '900',
+            path: '../../../../public/fonts/rubik/Rubik-Black.ttf',
+            weight: '800',
             style: 'normal',
         },
     ],
     display: 'swap',
-    variable: '--font-pinar'
+    variable: '--font-rubik'
 });
 
 const theme = createTheme({
@@ -83,7 +88,7 @@ const theme = createTheme({
 
 
     typography: {
-        fontFamily: PinarFont.style.fontFamily,
+        fontFamily: RubikFont.style.fontFamily,
     },
     components: {
         MuiAlert: {
