@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const ProductCard = ({ src, title }) => {
+const ProductCard = ({ src, title }: { src: string, title: string }) => {
   return (
     <div className='rounded-md bg-white'>
       <div className="bg-gray-100 rounded-lg">
