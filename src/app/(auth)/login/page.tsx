@@ -1,12 +1,6 @@
-const page = () => {
-    return (
-        <div className="bg-gray-100 max-w-[800px] mx-auto border border-gray-300 rounded-md p-4">
+import Login from '@/template/Login'
+import React from 'react'
 
-            <form>
-
-            </form>
-        </div>
-    )
-}
+const page = () => <Login />
 
 export default page

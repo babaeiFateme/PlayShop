@@ -54,13 +54,14 @@ const Header = () => {
       <div className='flex items-center gap-2 grow lg:basis-1/2'>
         <TextInput
           placeholder='search'
+          name='search'
           className='border border-gray-2' />
 
         <Link href='/cart'>
           <Shopping />
         </Link>
 
-        <Link href='/auth'>
+        <Link href='/login'>
           <Profile />
         </Link>
       </div>
