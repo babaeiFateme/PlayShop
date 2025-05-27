@@ -10,7 +10,7 @@ const ProductCard = ({ src, title }: { src: string, title: string }) => {
           width={300}
           height={200}
           loading="lazy"
-          className="block mx-auto max-w-[300px] aspect-[1] object-cover"
+          className="block mx-auto max-w-[300px] aspect-[1] object-cover w-full"
         />
       </div>
 

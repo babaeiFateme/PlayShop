@@ -2,6 +2,9 @@ import Image from 'next/image'
 import React from 'react'
 import logo from "../../../../public/images/_general/logo.png"
 import Link from 'next/link'
+import TextInput from '@/components/atoms/TextInput/TextInput'
+import Profile from '@/components/icons/Profile'
+import Shopping from '@/components/icons/Shopping'
 
 const Header = () => {
   const navLink = [
@@ -26,25 +29,41 @@ const Header = () => {
       href: "/"
     },
   ]
-  return (
-    <div className="px-2 md:px-[40px] py-6 bg-white flex gap-6 items-center">
-      <Image
-        src={logo.src}
-        alt='logo'
-        width={200}
-        height={100}
-      />
 
-      <ul className='flex gap-4 items-center '>
-        {navLink.map((item) => (
-          <li key={item.id}>
-            <Link href={item.href}>
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <input type='text' placeholder='search' className='border border-gray-2 grow' />
+  return (
+    <div className="px-2 md:px-[40px] py-6 bg-white flex gap-4 items-center flex-wrap">
+      <div className='lg:basis-1/2 flex gap-10 items-center flex-wrap'>
+        <Image
+          src={logo.src}
+          alt='logo'
+          width={200}
+          height={100}
+        />
+
+        <ul className='flex gap-4 items-center '>
+          {navLink.map((item) => (
+            <li key={item.id}>
+              <Link href={item.href}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className='flex items-center gap-2 grow lg:basis-1/2'>
+        <TextInput
+          placeholder='search'
+          className='border border-gray-2' />
+
+        <Link href='/cart'>
+          <Shopping />
+        </Link>
+
+        <Link href='/auth'>
+          <Profile />
+        </Link>
+      </div>
     </div>
   )
 }

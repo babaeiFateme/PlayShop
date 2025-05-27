@@ -66,7 +66,7 @@ const Hero = () => {
                     alt="banner"
                     width={1024}
                     height={613}
-                    className="w-full aspect-[4/3] object-cover"
+                    className="w-full aspect-[4/3] object-cover lg:h-full"
                 />
             </div>
 

@@ -6,7 +6,7 @@ import p1 from '@images/pages/products/p1.png'
 const NewArrivals = () => {
 
     return (
-        <div className=" mt-16">
+        <div className="px-5 md:px-10 mt-16">
             <h2 className="text-center font-bold text-4xl mb-10 mt-20">NEW ARRIVALS</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
