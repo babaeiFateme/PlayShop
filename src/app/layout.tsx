@@ -25,7 +25,8 @@ export default function RootLayout({
             <CssBaseline />
 
             <Provider>
-              {children}
+
+                {children}
             </Provider>
 
           </ThemeProvider>
