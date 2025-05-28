@@ -2,7 +2,13 @@
 
 import ProductCard from '@/components/molecules/ProductCard/ProductCard'
 import { useQuery } from '@tanstack/react-query'
-
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  images: string[];
+}
 const fetchProducts = async () => {
     const res = await fetch('https://api.escuelajs.co/api/v1/products')
     if (!res.ok) throw new Error('Network error')
@@ -21,7 +27,7 @@ const Products = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-[40px]'>
-            {data.map((product: any) => (
+            {data.map((product: Product) => (
                 <ProductCard key={product.id} product={product}/>
 
                 // <li key={product.id}>{product.title}</li>
