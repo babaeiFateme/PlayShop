@@ -8,14 +8,21 @@ interface Product {
 }
 
 const ProductCard = ({ product }: { product: Product }) => {
+   const imageUrl = product?.images?.[0];
+
+   const validImageSrc = imageUrl && imageUrl !== "string.png"
+
+    ? (imageUrl.startsWith("http") ? imageUrl : `https://fakeapi.platzi.com/${imageUrl}`)
+    : "/placeholder.png";
+
   return (
     <div className='rounded-md bg-white'>
       <div className="bg-gray-100 rounded-lg">
         <Image
-          src={product.images?.[0]}
-          alt={product.title}
-          width={300}
-          height={200}
+          src={validImageSrc}
+          alt={product?.title}
+          width={100}
+          height={100}
           loading="lazy"
           className="block mx-auto rounded-md aspect-[1] object-cover w-full"
         />

@@ -1,13 +1,15 @@
 'use client'
 
+import CardSkeleton from '@/components/atoms/Skeleton/CardSkeleton';
 import ProductCard from '@/components/molecules/ProductCard/ProductCard'
 import { useQuery } from '@tanstack/react-query'
+import { useEffect, useState } from 'react';
 interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  images: string[];
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    images: string[];
 }
 const fetchProducts = async () => {
     const res = await fetch('https://api.escuelajs.co/api/v1/products')
@@ -16,22 +18,30 @@ const fetchProducts = async () => {
 }
 
 const Products = () => {
-    const { data, isLoading, error } = useQuery({
+    const { data, error, isFetching } = useQuery({
         queryKey: ['products'],
         queryFn: fetchProducts
     })
 
-    if (isLoading) return <p>Loading...</p>
+    const [hydrated, setHydrated] = useState(false)
+    
+    useEffect(() => {
+        setHydrated(true)
+    }, [])
+
     if (error) return <p>خطا در دریافت اطلاعات!</p>
+
     if (!data || !Array.isArray(data)) return <p>داده‌ای برای نمایش وجود ندارد.</p>
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-[40px]'>
-            {data.map((product: Product) => (
-                <ProductCard key={product.id} product={product}/>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  px-[40px] gap-8 md:max-w-[900px]  lg:max-w-[1200px] mx-auto'>
 
-                // <li key={product.id}>{product.title}</li>
-            ))}
+            {
+                data.map((product: Product) => (
+                    (!hydrated || isFetching) ? <CardSkeleton key={product.id} /> : <ProductCard key={product.id} product={product} />
+                ))
+
+            }
         </div>
     )
 }
