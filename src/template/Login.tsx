@@ -51,7 +51,10 @@ const Login = () => {
                     />
                 </div>
 
-                <Button type='submit' variant='contained' color='primary'
+                <Button
+                    type='submit'
+                    variant='contained'
+                    color='primary'
                     className='mt-10 !mr-0 !ml-auto !block'>
                     Login
                 </Button>
