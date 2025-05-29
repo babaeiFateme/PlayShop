@@ -11,7 +11,7 @@ const Header = () => {
     {
       id: 1,
       label: "Shop",
-      href: "/"
+      href: "/products"
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ const Header = () => {
         <Link href='/'>
           <Image
             src={logo.src}
-            alt='logo'
+            alt='shop co'
             width={200}
             height={100}
           />

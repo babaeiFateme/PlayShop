@@ -36,11 +36,11 @@ const Hero = () => {
             <div>
                 <h1 className="font-bold lg:text-[60px] max-w-[600px]">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
 
-                <p className="font-medium lg:text-lg text-gray-700 max-w-[600px] mb-10">
+                <div className="font-medium lg:text-lg text-gray-700 max-w-[600px] mb-10">
                     Browse through our diverse range of meticulously crafted
                     garments, designed to bring out your individuality and cater
                     to your sense of style.
-                </p>
+                </div>
 
                 <Button
                     onClick={() => router.push('/products')}
