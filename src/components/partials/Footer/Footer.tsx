@@ -10,6 +10,7 @@ import applePay from '../../../../public/images/_general/ Pay.png'
 import visa from '../../../../public/images/_general/Visa.png'
 import paypal from '../../../../public/images/_general/Paypal.png'
 import Subscribe from '@/components/organisms/Footer/Subscribe'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -18,12 +19,14 @@ const Footer = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-[20px]'>
                 <div>
-                    <Image
-                        src={logo.src}
-                        alt='shop'
-                        width={200}
-                        height={150}
-                    />
+                    <Link href='/'>
+                        <Image
+                            src={logo.src}
+                            alt='shop'
+                            width={200}
+                            height={150}
+                        />
+                    </Link>
 
                     <div className='my-4'>
                         We have clothes that suits your style and which you’re proud to wear. From women to men.

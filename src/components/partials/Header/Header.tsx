@@ -33,12 +33,14 @@ const Header = () => {
   return (
     <div className="px-2 md:px-[40px] py-6 bg-white flex gap-4 items-center flex-wrap">
       <div className='lg:basis-1/2 flex gap-10 items-center flex-wrap'>
-        <Image
-          src={logo.src}
-          alt='logo'
-          width={200}
-          height={100}
-        />
+        <Link href='/'>
+          <Image
+            src={logo.src}
+            alt='logo'
+            width={200}
+            height={100}
+          />
+        </Link>
 
         <ul className='flex gap-4 items-center '>
           {navLink.map((item) => (
