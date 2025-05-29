@@ -8,9 +8,9 @@ interface Product {
 }
 
 const ProductCard = ({ product }: { product: Product }) => {
-   const imageUrl = product?.images?.[0];
+  const imageUrl = product?.images?.[0];
 
-   const validImageSrc = imageUrl && imageUrl !== "string.png"
+  const validImageSrc = imageUrl && imageUrl !== "string.png"
 
     ? (imageUrl.startsWith("http") ? imageUrl : `https://fakeapi.platzi.com/${imageUrl}`)
     : "/placeholder.png";
@@ -29,8 +29,11 @@ const ProductCard = ({ product }: { product: Product }) => {
       </div>
 
       <div className="flex flex-col gap-3 mt-3">
-        <h3>{product.title}</h3>
-        <div className="font-semibold text-2xl">${product.price}</div>
+        <h3 className="line-clamp-1">{product?.title}</h3>
+
+        <div className="line-clamp-2">{product?.description}</div>
+
+        <div className="font-semibold text-2xl">${product?.price}</div>
       </div>
     </div>
   )
