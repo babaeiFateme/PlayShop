@@ -5,9 +5,11 @@ import banner from "../../../../public/images/pages/landing/hero.png";
 import Image from "next/image";
 import { useTheme } from '@mui/material/styles';
 import Button from "@/components/atoms/Button/Button";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
     const theme = useTheme();
+    const router = useRouter()
 
     const approach = [
         {
@@ -41,6 +43,7 @@ const Hero = () => {
                 </p>
 
                 <Button
+                    onClick={() => router.push('/products')}
                     variant="contained"
                     style={{ background: theme.palette.custom.black.main }}
                     className="!rounded-xl !px-10 !py-2"

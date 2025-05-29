@@ -8,6 +8,7 @@ import 'swiper/css/autoplay'
 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import React from 'react'
+import { SwiperOptions } from 'swiper/types'
 
 interface CustomSwiperProps {
     children: React.ReactNode
@@ -15,7 +16,8 @@ interface CustomSwiperProps {
     autoPlay?: boolean
     loop?: boolean,
     navigation?: boolean,
-    pagination?: boolean
+    pagination?: boolean,
+    breakpoints?: SwiperOptions['breakpoints']
 
 }
 
@@ -23,6 +25,7 @@ const Swiper: React.FC<CustomSwiperProps> = ({
     slidePreview = 1,
     autoPlay = false,
     loop = false,
+    breakpoints = {},
     children,
     ...props
 }) => {
@@ -35,6 +38,7 @@ const Swiper: React.FC<CustomSwiperProps> = ({
             autoplay={autoPlay ? { delay: 1000, disableOnInteraction: false } : false}
             loop={loop}
             navigation={props.navigation ?? true}
+            breakpoints={breakpoints}
             {...props}
         >
             {children}

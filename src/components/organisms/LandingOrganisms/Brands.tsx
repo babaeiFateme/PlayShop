@@ -20,6 +20,26 @@ const Brands = () => {
                 loop
                 navigation={false}
                 pagination={false}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    575: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                    },
+                }}
             >
                 {brands.map((brand, index) => (
                     <SwiperSlide key={index}>
@@ -28,7 +48,7 @@ const Brands = () => {
                             alt={`Brand ${index + 1}`}
                             width={300}
                             height={200}
-                            className="object-contain aspect-[2] max-w-[200px]"
+                            className="object-contain aspect-[2] max-w-[200px] mx-auto block"
                         />
                     </SwiperSlide>
                 ))}
