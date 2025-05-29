@@ -2,27 +2,18 @@
 import Button from "@/components/atoms/Button/Button"
 import CardSkeleton from "@/components/atoms/Skeleton/CardSkeleton"
 import ProductCard from "@/components/molecules/ProductCard/ProductCard"
+import fetchHandler from "@/core/helpers/fetchHandler";
+import IProduct from "@/core/types/product.types";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    images: string[];
-}
 
-const fetchProducts = async () => {
-    const res = await fetch('https://api.escuelajs.co/api/v1/products')
-    if (!res.ok) throw new Error('Network error')
-    return res.json()
-}
+
 
 const TopSelling = () => {
     const { data, error, isFetching } = useQuery({
         queryKey: ['products'],
-        queryFn: fetchProducts
+        queryFn: () => fetchHandler('products')
     })
 
     const [hydrated, setHydrated] = useState(false)
@@ -40,7 +31,7 @@ const TopSelling = () => {
             <h2 className="text-center font-bold text-4xl mb-10 mt-20">TOP SELLING</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {
-                    data.map((product: Product, index: number) =>
+                    data.map((product: IProduct, index: number) =>
                         ((!hydrated || isFetching) && index < 4)
                             ? <CardSkeleton key={product.id} />
                             : (index < 4 ? <ProductCard key={product.id} product={product} /> : null)

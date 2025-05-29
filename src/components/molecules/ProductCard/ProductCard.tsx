@@ -1,13 +1,7 @@
+import IProduct from "@/core/types/product.types";
 import Image from "next/image"
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  images: string[];
-}
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: IProduct }) => {
   const imageUrl = product?.images?.[0];
 
   const validImageSrc = imageUrl && imageUrl !== "string.png"
@@ -29,7 +23,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       </div>
 
       <div className="flex flex-col gap-3 mt-3">
-        <h3 className="line-clamp-1">{product?.title}</h3>
+        <h3 className="line-clamp-1 font-semibold text-lg">{product?.title}</h3>
 
         <div className="line-clamp-2">{product?.description}</div>
 

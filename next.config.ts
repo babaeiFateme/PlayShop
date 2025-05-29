@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
       "fakeapi.platzi.com",
       "cdn.dummyjson.com",
       "images.app.goo.gl",
-      'ldmaria.ro'
+      'ldmaria.ro',
+      'test.url'
     ],
   },
 };
