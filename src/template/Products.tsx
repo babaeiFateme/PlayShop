@@ -4,6 +4,7 @@ import CardSkeleton from '@/components/atoms/Skeleton/CardSkeleton';
 import ProductCard from '@/components/molecules/ProductCard/ProductCard'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react';
+
 interface Product {
     id: number;
     title: string;

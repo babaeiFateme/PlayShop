@@ -4,6 +4,7 @@ import Products from '@/template/Products'
 import ReactQueryProvider from '@/lib/react-query-provider'
 
 const fetchProducts = async () => {
+  
   const res = await fetch('https://api.escuelajs.co/api/v1/products')
   if (!res.ok) {
     throw new Error('Network response was not ok')
