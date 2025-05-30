@@ -14,7 +14,15 @@ const nextConfig: NextConfig = {
       "cdn.dummyjson.com",
       "images.app.goo.gl",
       'ldmaria.ro',
-      'test.url'
+      'test.url',
+      'i.pravatar.cc',
+      'api.escuelajs.co',
+      'asset-2.tstatic.net',
+      'hdqwalls.com',
+      'fastly.picsum.photos',
+      'via.placeholder.comhttps',
+      'images.pexels.com',
+      'www.sony.co.in'
     ],
   },
 };

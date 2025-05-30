@@ -1,3 +1,4 @@
+import CBadge from "@/components/atoms/CBadge/CBadge";
 import IProduct from "@/core/types/product.types";
 import Image from "next/image"
 
@@ -11,7 +12,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
 
   return (
     <div className='rounded-md bg-white'>
-      <div className="bg-gray-100 rounded-lg">
+      <div className="bg-gray-100 rounded-lg relative">
         <Image
           src={validImageSrc}
           alt={product?.title}
@@ -20,6 +21,10 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           loading="lazy"
           className="block mx-auto rounded-md aspect-[1] object-cover w-full"
         />
+
+        <CBadge className="text-white" color='primary'>
+          {product?.category?.name}
+        </CBadge>
       </div>
 
       <div className="flex flex-col gap-3 mt-3">

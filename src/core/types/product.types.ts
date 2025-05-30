@@ -4,6 +4,9 @@ interface IProduct {
     price: number;
     description: string;
     images: string[];
+    category: {
+        name: string
+    }
 }
 
 export default IProduct
