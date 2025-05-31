@@ -8,14 +8,14 @@ import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '@/components/atoms/Button/Button'
 import { useMutation } from '@tanstack/react-query'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import { toast } from 'react-hot-toast';
 
 
 const Login = () => {
 
-    // const router = useRouter();
+    const router = useRouter();
 
     const {
         control,
@@ -41,7 +41,7 @@ const Login = () => {
 
                 toast.success('Login succes!');
 
-                // router.push('/');
+                router.push('/');
 
             } else {
                 toast.error('Login failed!');
@@ -62,7 +62,7 @@ const Login = () => {
     return (
         <div className="bg-gray-50 max-w-[800px] mx-auto border border-gray-300 rounded-md p-8 my-[100px]">
             <h1 className='mb-6 text-sm md:text-3xl font-black text-center'>LOGIN FORM</h1>
-            <form onSubmit={handleSubmit(handleFormSubmit)} className='bg-red-500'>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className='flex flex-col gap-6 mb-6'>
                     <Controller
                         control={control}
