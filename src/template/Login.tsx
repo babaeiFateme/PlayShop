@@ -13,12 +13,13 @@ import fetchHandler from '@/core/helpers/fetchHandler'
 import { toast } from 'react-hot-toast'
 import useUserStore from '@/core/store/userstore'
 import { useState } from 'react'
+import ROUTES from '@/core/constants/routes/routes.constant'
 
 const Login = () => {
-    // فقط setUser رو بگیر از Store
     const setUser = useUserStore((state) => state.setUser)
 
     const router = useRouter()
+
     const [userData, setUserData] = useState<ILoginFormType | null>(null)
 
     const {
@@ -32,14 +33,17 @@ const Login = () => {
 
     const { mutate } = useMutation({
         mutationFn: (data: ILoginFormType) => fetchHandler('auth/login', { method: 'POST', data }),
+
         onSuccess: (res) => {
             if (res.access_token) {
                 localStorage.setItem('token', res.access_token)
+
                 if (userData) {
                     setUser(userData)
                 }
                 toast.success('Login success!')
-                router.push('/')
+
+                router.push(ROUTES.Landing)
             } else {
                 toast.error('Login failed!')
             }

@@ -2,34 +2,20 @@ import Brands from '@/components/organisms/LandingOrganisms/Brands'
 import Hero from '@/components/organisms/LandingOrganisms/Hero'
 import NewArrivals from '@/components/organisms/LandingOrganisms/NewArrivals'
 import TopSelling from '@/components/organisms/LandingOrganisms/TopSelling'
-import fetchHandler from '@/core/helpers/fetchHandler'
-import ReactQueryProvider from '@/lib/react-query-provider'
-import { dehydrate, QueryClient } from '@tanstack/react-query'
+import IProduct from '@/core/types/product.types'
+
 import React from 'react'
 
-const Landing = async () => {
-    const queryClient = new QueryClient()
-
-    await queryClient.ensureQueryData({
-        queryKey: ['products'],
-        queryFn: () => fetchHandler('products')
-    })
-
-    const dehydratedState = dehydrate(queryClient)
-
+const Landing = async ({ initialData }: { initialData: IProduct[] }) => {
     return (
         <>
             <Hero />
 
             <Brands />
 
-            <ReactQueryProvider state={dehydratedState}>
-                <NewArrivals />
-            </ReactQueryProvider>
+            <NewArrivals initialData={initialData} />
 
-            <ReactQueryProvider state={dehydratedState}>
-                <TopSelling />
-            </ReactQueryProvider>
+            <TopSelling initialData={initialData} />
         </>
     )
 }

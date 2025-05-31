@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 const Products = () => {
     const { data, error, isFetching } = useQuery({
         queryKey: ['products'],
-        queryFn: () => fetchHandler('products')
+        queryFn: () => fetchHandler('/products')
     })
 
     const [hydrated, setHydrated] = useState(false)

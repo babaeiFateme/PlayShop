@@ -9,7 +9,7 @@ const Page = async () => {
 
     await queryClient.ensureQueryData({
         queryKey: ['products'],
-        queryFn: () => fetchHandler('products')
+        queryFn: () => fetchHandler('/products')
     })
 
     const dehydratedState = dehydrate(queryClient)

@@ -5,18 +5,13 @@ import ProductCard from '@/components/molecules/ProductCard/ProductCard'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import IProduct from '@/core/types/product.types'
 import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
-const NewArrivals = () => {
+
+const NewArrivals = ({ initialData }: { initialData: IProduct[] }) => {
     const { data, isFetching, error } = useQuery({
         queryKey: ['products'],
-        queryFn: () => fetchHandler('products')
+        queryFn: () => fetchHandler('/products'),
+        initialData: initialData
     })
-
-    const [hydrated, setHydrated] = useState(false)
-
-    useEffect(() => {
-        setHydrated(true)
-    }, [])
 
     if (error) return <p>خطا در دریافت اطلاعات!</p>
 
@@ -29,7 +24,7 @@ const NewArrivals = () => {
                 {data
                     .slice(-4)
                     .map((product: IProduct, index: number) =>
-                        !hydrated || isFetching ? (
+                        isFetching ? (
                             <CardSkeleton key={product.id} />
                         ) : index < 4 ? (
                             <ProductCard key={product.id} product={product} />
