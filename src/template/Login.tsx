@@ -62,7 +62,7 @@ const Login = () => {
     return (
         <div className="bg-gray-50 max-w-[800px] mx-auto border border-gray-300 rounded-md p-8 my-[100px]">
             <h1 className='mb-6 text-sm md:text-3xl font-black text-center'>LOGIN FORM</h1>
-            <form onSubmit={handleSubmit(handleFormSubmit)}>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className='bg-red-500'>
                 <div className='flex flex-col gap-6 mb-6'>
                     <Controller
                         control={control}
