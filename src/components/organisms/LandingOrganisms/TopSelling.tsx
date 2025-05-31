@@ -2,6 +2,7 @@
 import Button from '@/components/atoms/Button/Button'
 import CardSkeleton from '@/components/atoms/Skeleton/CardSkeleton'
 import ProductCard from '@/components/molecules/ProductCard/ProductCard'
+import API_ENDPOINTS from '@/core/constants/api-endpoints/api-endpoints.constants'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import IProduct from '@/core/types/product.types'
 import { useQuery } from '@tanstack/react-query'
@@ -11,7 +12,7 @@ const TopSelling = ({ initialData }: { initialData: IProduct[] }) => {
     const { data, error, isFetching } = useQuery<IProduct[]>({
         /*TODO: get from enum */
         queryKey: ['products'],
-        queryFn: () => fetchHandler('/products'),
+        queryFn: () => fetchHandler(API_ENDPOINTS.products),
         initialData: initialData // Now initialValues matches the expected type
     })
 
