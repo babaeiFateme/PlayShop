@@ -24,7 +24,8 @@
     "react-hook-form": "^7.56.4",
     "react-hot-toast": "^2.5.2",
     "swiper": "^11.2.7",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
