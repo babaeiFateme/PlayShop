@@ -10,53 +10,50 @@ import Button from '@/components/atoms/Button/Button'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import fetchHandler from '@/core/helpers/fetchHandler'
-import { toast } from 'react-hot-toast';
-
+import { toast } from 'react-hot-toast'
+import useUserStore from '@/core/store/userstore'
+import { useState } from 'react'
 
 const Login = () => {
+    // فقط setUser رو بگیر از Store
+    const setUser = useUserStore((state) => state.setUser)
 
-    const router = useRouter();
+    const router = useRouter()
+    const [userData, setUserData] = useState<ILoginFormType | null>(null)
 
     const {
         control,
         handleSubmit,
-        formState:
-        { errors }
-    }
-        = useForm<ILoginFormType>(
-            {
-                defaultValues: DEFAULT_VALUES,
-                resolver: yupResolver(loginSchema)
-            }
-        )
+        formState: { errors }
+    } = useForm<ILoginFormType>({
+        defaultValues: DEFAULT_VALUES,
+        resolver: yupResolver(loginSchema)
+    })
 
     const { mutate } = useMutation({
-
         mutationFn: (data: ILoginFormType) => fetchHandler('auth/login', { method: 'POST', data }),
-
         onSuccess: (res) => {
             if (res.access_token) {
-
-                localStorage.setItem('token', res.access_token);
-
-                toast.success('Login success!');
-
-                router.push('/');
-
+                localStorage.setItem('token', res.access_token)
+                if (userData) {
+                    setUser(userData)  
+                }
+                toast.success('Login success!')
+                router.push('/')
             } else {
-                toast.error('Login failed!');
+                toast.error('Login failed!')
             }
         },
-
         onError: (error: unknown) => {
-            const message = error instanceof Error ? error.message : 'خطایی رخ داده';
-            console.log(message);
-            toast.error('Login failed!');
+            const message = error instanceof Error ? error.message : 'خطایی رخ داده'
+            console.log(message)
+            toast.error('Login failed!')
         }
-    });
+    })
 
     const handleFormSubmit = (values: ILoginFormType) => {
-        mutate(values)
+        setUserData(values)    // داده‌های فرم رو ذخیره کن
+        mutate(values)         // API call کن
     }
 
     return (
@@ -69,27 +66,26 @@ const Login = () => {
                         name='email'
                         render={({ field }) => (
                             <Field fieldError={errors} fieldName='email' label='Email'>
-                                <TextInput  {...field} />
+                                <TextInput {...field} />
                             </Field>
                         )}
                     />
-
                     <Controller
                         control={control}
                         name='password'
                         render={({ field }) => (
                             <Field fieldError={errors} fieldName='password' label='Password'>
-                                <TextInput type='password'  {...field} />
+                                <TextInput type='password' {...field} />
                             </Field>
                         )}
                     />
                 </div>
-
                 <Button
                     type='submit'
                     variant='contained'
                     color='primary'
-                    className='mt-10 !mr-0 !ml-auto !block'>
+                    className='mt-10 !mr-0 !ml-auto !block'
+                >
                     Login
                 </Button>
             </form>
