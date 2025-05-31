@@ -56,7 +56,6 @@ const Login = () => {
     });
 
     const handleFormSubmit = (values: ILoginFormType) => {
-        console.log(values);
         mutate(values)
     }
 
