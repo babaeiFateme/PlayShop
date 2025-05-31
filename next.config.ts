@@ -22,7 +22,13 @@ const nextConfig: NextConfig = {
       'fastly.picsum.photos',
       'via.placeholder.comhttps',
       'images.pexels.com',
-      'www.sony.co.in'
+      'www.sony.co.in',
+      'www.ultramanconnection.com',
+      'via.placeholder.com',
+      'via.placehohttps',
+      'cdn.onemars.net',
+      'cdn.movertix.com',
+      'www.apple.com'
     ],
   },
 };
