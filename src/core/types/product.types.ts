@@ -1,11 +1,11 @@
 interface IProduct {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    images: string[];
+    id: number
+    title: string
+    price: number
+    description: string
+    images: string[]
     category: {
-        name: string,
+        name: string
         id?: string
     }
 }

@@ -7,9 +7,7 @@ import ReactQueryProvider from '@/lib/react-query-provider'
 import { dehydrate, QueryClient } from '@tanstack/react-query'
 import React from 'react'
 
-
 const Landing = async () => {
-
     const queryClient = new QueryClient()
 
     await queryClient.ensureQueryData({
@@ -18,7 +16,6 @@ const Landing = async () => {
     })
 
     const dehydratedState = dehydrate(queryClient)
-
 
     return (
         <>
@@ -33,8 +30,6 @@ const Landing = async () => {
             <ReactQueryProvider state={dehydratedState}>
                 <TopSelling />
             </ReactQueryProvider>
-
-
         </>
     )
 }

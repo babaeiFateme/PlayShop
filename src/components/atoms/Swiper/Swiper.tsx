@@ -10,15 +10,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import React from 'react'
 import ISwiperProps from './Swiper.types'
 
-
-const Swiper = ({
-    autoPlay = false,
-    children,
-    spaceBetween = 50,
-    ...props
-}: ISwiperProps) => {
-
-
+const Swiper = ({ autoPlay = false, children, spaceBetween = 50, ...props }: ISwiperProps) => {
     return (
         <SwiperComponent
             modules={[Navigation, Pagination, Autoplay]}

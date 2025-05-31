@@ -1,8 +1,8 @@
-import ICBadgeType from '@/core/types/custom-badge.type';
-import { useTheme, Theme } from '@mui/material/styles';
+import ICBadgeType from '@/core/types/custom-badge.type'
+import { useTheme, Theme } from '@mui/material/styles'
 
 const CBadge = ({ children, className = '', color = 'primary' }: ICBadgeType) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<Theme>()
 
     const getColor = () => {
         /* generic type */
@@ -17,10 +17,7 @@ const CBadge = ({ children, className = '', color = 'primary' }: ICBadgeType) =>
     }
 
     return (
-        <span
-            className={`rounded-sm absolute top-5 left-5 p-2  ${className}`}
-            style={{ backgroundColor: getColor() }}
-        >
+        <span className={`rounded-sm absolute top-5 left-5 p-2  ${className}`} style={{ backgroundColor: getColor() }}>
             {children}
         </span>
     )

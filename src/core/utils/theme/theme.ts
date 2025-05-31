@@ -1,92 +1,91 @@
-'use client';
-import { createTheme } from '@mui/material/styles';
-import localFont from 'next/font/local';
-import { grey } from '@mui/material/colors';
+'use client'
+import { createTheme } from '@mui/material/styles'
+import localFont from 'next/font/local'
+import { grey } from '@mui/material/colors'
 
 // theme.d.ts
-import { PaletteColor, PaletteColorOptions } from '@mui/material/styles';
+import { PaletteColor, PaletteColorOptions } from '@mui/material/styles'
 
 declare module '@mui/material/styles' {
-  interface Palette {
-    custom: {
-      black: PaletteColor;
-    };
-  }
-  interface PaletteOptions {
-    custom?: {
-      black: PaletteColorOptions;
-    };
-  }
+    interface Palette {
+        custom: {
+            black: PaletteColor
+        }
+    }
+    interface PaletteOptions {
+        custom?: {
+            black: PaletteColorOptions
+        }
+    }
 }
-
 
 const RubikFont = localFont({
     src: [
         {
             path: '../../../../public/fonts/rubik/Rubik-Light.ttf',
             weight: '300',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-Regular.ttf',
             weight: '400',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-Medium.ttf',
             weight: '500',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-SemiBold.ttf',
             weight: '600',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-Bold.ttf',
             weight: '700',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-ExtraBold.ttf',
             weight: '800',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../../../../public/fonts/rubik/Rubik-Black.ttf',
             weight: '800',
-            style: 'normal',
-        },
+            style: 'normal'
+        }
     ],
     display: 'swap',
     variable: '--font-rubik'
-});
+})
 
 const theme = createTheme({
     colorSchemes: { light: true },
     cssVariables: {
-        colorSchemeSelector: 'class',
+        colorSchemeSelector: 'class'
     },
     palette: {
         primary: {
             main: '#3c6e71',
-            contrastText: '#fff',
+            contrastText: '#fff'
         },
 
         secondary: {
             main: '#353535',
-            contrastText: '#fff',
+            contrastText: '#fff'
         },
         custom: {
             black: {
                 main: grey[900],
-                contrastText: '#fff',
-            },
+                contrastText: '#fff'
+            }
         }
     },
 
     typography: {
-        fontFamily: RubikFont.style.fontFamily,
+        fontFamily: RubikFont.style.fontFamily
     },
     components: {
         MuiAlert: {
@@ -96,14 +95,14 @@ const theme = createTheme({
                         {
                             props: { severity: 'info' },
                             style: {
-                                backgroundColor: '#60a5fa',
-                            },
-                        },
-                    ],
-                },
-            },
-        },
-    },
-});
+                                backgroundColor: '#60a5fa'
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+})
 
-export default theme;
+export default theme

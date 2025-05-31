@@ -1,10 +1,10 @@
-import Button from "@/components/atoms/Button/Button";
-import NextLink from "next/link"
+import Button from '@/components/atoms/Button/Button'
+import NextLink from 'next/link'
 
 interface IFooterType {
-    title: string;
-    baseHref: string;
-    items: { id: number; label: string; href: string }[];
+    title: string
+    baseHref: string
+    items: { id: number; label: string; href: string }[]
 }
 
 const FooterSection = ({ title, baseHref, items }: IFooterType) => {

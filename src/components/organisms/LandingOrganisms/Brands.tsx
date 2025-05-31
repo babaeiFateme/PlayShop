@@ -1,13 +1,12 @@
 'use client'
 import Swiper from '@/components/atoms/Swiper/Swiper'
 import { SwiperSlide } from 'swiper/react'
-import Image from 'next/image';
+import Image from 'next/image'
 
-import brand1 from "@images/pages/landing/brand/brand-1.png";
-import brand2 from "@images/pages/landing/brand/brand-2.png";
-import brand3 from "@images/pages/landing/brand/brand-3.png";
-import brand4 from "@images/pages/landing/brand/brand-4.png";
-
+import brand1 from '@images/pages/landing/brand/brand-1.png'
+import brand2 from '@images/pages/landing/brand/brand-2.png'
+import brand3 from '@images/pages/landing/brand/brand-3.png'
+import brand4 from '@images/pages/landing/brand/brand-4.png'
 
 const Brands = () => {
     const brands = [brand1, brand2, brand1, brand3, brand2, brand4]
@@ -22,23 +21,23 @@ const Brands = () => {
                 pagination={false}
                 breakpoints={{
                     0: {
-                        slidesPerView: 1,
+                        slidesPerView: 1
                     },
                     575: {
-                        slidesPerView: 2,
+                        slidesPerView: 2
                     },
                     768: {
-                        slidesPerView: 3,
+                        slidesPerView: 3
                     },
                     992: {
-                        slidesPerView: 3,
+                        slidesPerView: 3
                     },
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: 4
                     },
                     1200: {
-                        slidesPerView: 5,
-                    },
+                        slidesPerView: 5
+                    }
                 }}
             >
                 {brands.map((brand, index) => (
@@ -48,11 +47,11 @@ const Brands = () => {
                             alt={`Brand ${index + 1}`}
                             width={300}
                             height={200}
-                            className="object-contain aspect-[2] max-w-[200px] mx-auto block"
+                            className='object-contain aspect-[2] max-w-[200px] mx-auto block'
                         />
                     </SwiperSlide>
                 ))}
-            </Swiper >
+            </Swiper>
         </div>
     )
 }

@@ -36,7 +36,7 @@ const Login = () => {
             if (res.access_token) {
                 localStorage.setItem('token', res.access_token)
                 if (userData) {
-                    setUser(userData)  
+                    setUser(userData)
                 }
                 toast.success('Login success!')
                 router.push('/')
@@ -52,12 +52,12 @@ const Login = () => {
     })
 
     const handleFormSubmit = (values: ILoginFormType) => {
-        setUserData(values)    // داده‌های فرم رو ذخیره کن
-        mutate(values)         // API call کن
+        setUserData(values) // داده‌های فرم رو ذخیره کن
+        mutate(values) // API call کن
     }
 
     return (
-        <div className="bg-gray-50 max-w-[800px] mx-auto border border-gray-300 rounded-md p-8 my-[100px]">
+        <div className='bg-gray-50 max-w-[800px] mx-auto border border-gray-300 rounded-md p-8 my-[100px]'>
             <h1 className='mb-6 text-sm md:text-3xl font-black text-center'>LOGIN FORM</h1>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className='flex flex-col gap-6 mb-6'>
@@ -80,12 +80,7 @@ const Login = () => {
                         )}
                     />
                 </div>
-                <Button
-                    type='submit'
-                    variant='contained'
-                    color='primary'
-                    className='mt-10 !mr-0 !ml-auto !block'
-                >
+                <Button type='submit' variant='contained' color='primary' className='mt-10 !mr-0 !ml-auto !block'>
                     Login
                 </Button>
             </form>

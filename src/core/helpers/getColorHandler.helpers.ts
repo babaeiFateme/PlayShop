@@ -1,4 +1,3 @@
-
 /* generic type */
 // const getColor = <T>() => {
 //     const colorMap: Record<NonNullable<T['color']>, string> = {

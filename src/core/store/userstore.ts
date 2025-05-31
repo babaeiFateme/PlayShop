@@ -2,11 +2,10 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import ILoginFormType from '../types/login-form.types'
 
-
 type UserStore = {
-    user: ILoginFormType | null,  // حالا نوع user همون ILoginFormType میشه
-    setUser: (user: ILoginFormType) => void,
-    clearUser: () => void,
+    user: ILoginFormType | null // حالا نوع user همون ILoginFormType میشه
+    setUser: (user: ILoginFormType) => void
+    clearUser: () => void
 }
 
 const useUserStore = create<UserStore>()(
@@ -14,11 +13,11 @@ const useUserStore = create<UserStore>()(
         (set) => ({
             user: null,
             setUser: (userData) => set({ user: userData }),
-            clearUser: () => set({ user: null }),
+            clearUser: () => set({ user: null })
         }),
         {
             name: 'user-storage',
-            skipHydration: false,
+            skipHydration: false
         }
     )
 )

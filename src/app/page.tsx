@@ -1,4 +1,4 @@
-import Landing from "@/template/Landing";
+import Landing from '@/template/Landing'
 
 const Home = () => <Landing />
 

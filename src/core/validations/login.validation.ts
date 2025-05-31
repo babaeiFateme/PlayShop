@@ -4,7 +4,7 @@ import * as yup from 'yup'
 
 const loginSchema = yup.object().shape({
     email: yup.string().email().required(),
-    password: yup.string().required(),
+    password: yup.string().required()
     // password: yup.string().required().min(6,'must be at least 6 characters long').matches(passwordRules, { message: "Please create a stronger password" }),
 })
 

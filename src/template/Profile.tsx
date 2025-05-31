@@ -10,9 +10,10 @@ const Profile = () => {
     }
 
     return (
-        <div>{user.email} {user.password}</div>
+        <div>
+            {user.email} {user.password}
+        </div>
     )
 }
-
 
 export default Profile

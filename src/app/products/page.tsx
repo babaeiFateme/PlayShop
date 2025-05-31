@@ -4,23 +4,21 @@ import Products from '@/template/Products'
 import ReactQueryProvider from '@/lib/react-query-provider'
 import fetchHandler from '@/core/helpers/fetchHandler'
 
-
-
 const Page = async () => {
-  const queryClient = new QueryClient()
+    const queryClient = new QueryClient()
 
-  await queryClient.ensureQueryData({
-    queryKey: ['products'],
-    queryFn: () => fetchHandler('products'),
-  })
+    await queryClient.ensureQueryData({
+        queryKey: ['products'],
+        queryFn: () => fetchHandler('products')
+    })
 
-  const dehydratedState = dehydrate(queryClient)
+    const dehydratedState = dehydrate(queryClient)
 
-  return (
-    <ReactQueryProvider state={dehydratedState}>
-      <Products />
-    </ReactQueryProvider>
-  )
+    return (
+        <ReactQueryProvider state={dehydratedState}>
+            <Products />
+        </ReactQueryProvider>
+    )
 }
 
 export default Page
