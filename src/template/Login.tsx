@@ -7,7 +7,16 @@ import loginSchema from '@/core/validations/login.validation'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '@/components/atoms/Button/Button'
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+import fetchHandler from '@/core/helpers/fetchHandler'
+import { toast } from 'react-hot-toast';
+
+
 const Login = () => {
+
+    const router = useRouter();
+
     const {
         control,
         handleSubmit,
@@ -21,8 +30,34 @@ const Login = () => {
             }
         )
 
+    const { mutate } = useMutation({
+
+        mutationFn: (data: ILoginFormType) => fetchHandler('auth/login', { method: 'POST', data }),
+
+        onSuccess: (res) => {
+            if (res.access_token) {
+
+                localStorage.setItem('token', res.access_token);
+
+                toast.success('Login succes!');
+
+                router.push('/');
+
+            } else {
+                toast.error('Login failed!');
+            }
+        },
+
+        onError: (error: unknown) => {
+            const message = error instanceof Error ? error.message : 'خطایی رخ داده';
+            console.log(message);
+            toast.error('Login failed!');
+        }
+    });
+
     const handleFormSubmit = (values: ILoginFormType) => {
         console.log(values);
+        mutate(values)
     }
 
     return (
