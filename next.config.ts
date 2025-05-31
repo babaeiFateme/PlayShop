@@ -28,7 +28,8 @@ const nextConfig: NextConfig = {
       'via.placehohttps',
       'cdn.onemars.net',
       'cdn.movertix.com',
-      'www.apple.com'
+      'www.apple.com',
+      'www.google.com',
     ],
   },
 };
