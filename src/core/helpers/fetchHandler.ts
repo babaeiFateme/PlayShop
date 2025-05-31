@@ -1,5 +1,5 @@
 const fetchHandler = async (url: string, options: { method?: string; data?: unknown } = {}) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const { method = 'GET', data } = options;
 
@@ -22,7 +22,7 @@ const fetchHandler = async (url: string, options: { method?: string; data?: unkn
     config.body = JSON.stringify(data);
   }
 
-  const res = await fetch(`${baseUrl}${url}`, config);
+  const res = await fetch(`https://api.escuelajs.co/api/v1/${url}`, config);
 
   if (!res.ok) {
     const errorText = await res.text();
