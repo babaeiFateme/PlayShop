@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from "../../../../public/images/_general/logo.png"
+import logo from "../../../../public/images/general/logo.png"
 import Link from 'next/link'
 import TextInput from '@/components/atoms/TextInput/TextInput'
 import Profile from '@/components/icons/Profile'

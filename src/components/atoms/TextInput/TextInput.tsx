@@ -1,21 +1,12 @@
 import { TextField } from '@mui/material'
-import React from 'react'
+import ITextInputProps from './ITextInputProps'
 
-interface ITextInput {
-    className?: string
-    placeholder?: string
-    name: string,
-    type?: string
-}
-
-const TextInput = ({ className, type = 'text', name = '', ...props }: ITextInput) => {
+/* rename to base input */
+const TextInput = ({ className, variant = 'filled', ...props }: ITextInputProps) => {
     return (
         <TextField
-            type={type}
-            hiddenLabel
-            variant="filled"
+            variant={variant}
             className={`rounded-md w-full !min-h-[15px] ${className}`}
-            name={name}
             {...props}
         />
     )

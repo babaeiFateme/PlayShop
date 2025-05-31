@@ -1,14 +1,14 @@
 import React from 'react'
-import logo from "../../../../public/images/_general/logo.png"
+import logo from "../../../../public/images/general/logo.png"
 import Image from 'next/image'
 import FooterSection from '../../organisms/Footer/FooterSection'
 import FooterInfo from '../../organisms/Footer/resources/content/FooterInfo'
 import FooterBottom from '@/components/organisms/Footer/FooterBottom'
-import GPay from '../../../../public/images/_general/G Pay.png'
-import master from '../../../../public/images/_general/Mastercard.png'
-import applePay from '../../../../public/images/_general/ Pay.png'
-import visa from '../../../../public/images/_general/Visa.png'
-import paypal from '../../../../public/images/_general/Paypal.png'
+import GPay from '../../../../public/images/general/G Pay.png'
+import master from '../../../../public/images/general/Mastercard.png'
+import applePay from '../../../../public/images/general/ Pay.png'
+import visa from '../../../../public/images/general/Visa.png'
+import paypal from '../../../../public/images/general/Paypal.png'
 import Subscribe from '@/components/organisms/Footer/Subscribe'
 import Link from 'next/link'
 

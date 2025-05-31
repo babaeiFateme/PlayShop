@@ -15,7 +15,7 @@ const Brands = () => {
     return (
         <div className='bg-black text-white p-8'>
             <Swiper
-                slidePreview={5}
+                slidesPerView={5}
                 autoPlay
                 loop
                 navigation={false}

@@ -21,6 +21,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@images/*": ["./public/images/*"]
+      /* add all path and directories*/
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

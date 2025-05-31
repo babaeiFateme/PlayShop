@@ -1,11 +1,12 @@
 import ICBadgeType from '@/core/types/custom-badge.type';
 import { useTheme, Theme } from '@mui/material/styles';
 
-const CBadge: React.FC<ICBadgeType> = ({ children, className = '', color = 'primary' }) => {
+const CBadge = ({ children, className = '', color = 'primary' }: ICBadgeType) => {
     const theme = useTheme<Theme>();
 
     const getColor = () => {
-         const colorMap: Record<NonNullable<ICBadgeType['color']>, string> = {
+        /* generic type */
+        const colorMap: Record<NonNullable<ICBadgeType['color']>, string> = {
             primary: theme.palette.primary.main,
             info: theme.palette.info.main,
             success: theme.palette.success.main,
@@ -16,9 +17,12 @@ const CBadge: React.FC<ICBadgeType> = ({ children, className = '', color = 'prim
     }
 
     return (
-        <span className={`rounded-sm absolute top-5 left-5 p-2  ${className}`}
+        <span
+            className={`rounded-sm absolute top-5 left-5 p-2  ${className}`}
             style={{ backgroundColor: getColor() }}
-        >{children}</span>
+        >
+            {children}
+        </span>
     )
 }
 

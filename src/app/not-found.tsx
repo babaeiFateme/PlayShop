@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
-import img from "../../public/images/_general/404.png"
+import img from "../../public/images/general/404.png"
 import Button from '@/components/atoms/Button/Button'
 const NotFound = () => {
     return (

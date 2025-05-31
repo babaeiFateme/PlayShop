@@ -85,8 +85,6 @@ const theme = createTheme({
         }
     },
 
-
-
     typography: {
         fontFamily: RubikFont.style.fontFamily,
     },
