@@ -3,7 +3,6 @@ const fetchHandler = async (url: string, options: { method?: string; data?: unkn
 
   const { method = 'GET', data } = options;
 
-  // گرفتن توکن از localStorage (فقط سمت کلاینت)
   let token = null;
   if (typeof window !== 'undefined') {
     token = localStorage.getItem('token');
