@@ -39,7 +39,7 @@ const Login = () => {
 
                 localStorage.setItem('token', res.access_token);
 
-                toast.success('Login succes!');
+                toast.success('Login success!');
 
                 router.push('/');
 
