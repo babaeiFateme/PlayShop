@@ -8,14 +8,14 @@ import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '@/components/atoms/Button/Button'
 import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import { toast } from 'react-hot-toast';
 
 
 const Login = () => {
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const {
         control,
@@ -41,7 +41,7 @@ const Login = () => {
 
                 toast.success('Login succes!');
 
-                router.push('/');
+                // router.push('/');
 
             } else {
                 toast.error('Login failed!');
