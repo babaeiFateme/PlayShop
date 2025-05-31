@@ -11,12 +11,13 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import { toast } from 'react-hot-toast'
-import useUserStore from '@/core/store/userstore'
+import useUserStore from '@/core/store/user/user-store'
 import { useState } from 'react'
 import ROUTES from '@/core/constants/routes/routes.constant'
-
+import { setCookie } from 'cookies-next'
+import API_ENDPOINTS from '@/core/constants/api-endpoints/api-endpoints.constants'
 const Login = () => {
-    const setUser = useUserStore((state) => state.setUser)
+    const setUserReducer = useUserStore((state) => state.setUserReducer)
 
     const router = useRouter()
 
@@ -28,18 +29,21 @@ const Login = () => {
         formState: { errors }
     } = useForm<ILoginFormType>({
         defaultValues: DEFAULT_VALUES,
+
         resolver: yupResolver(loginSchema)
     })
 
     const { mutate } = useMutation({
-        mutationFn: (data: ILoginFormType) => fetchHandler('auth/login', { method: 'POST', data }),
+        mutationFn: (data: ILoginFormType) => fetchHandler(API_ENDPOINTS.login, { method: 'POST', data }),
 
         onSuccess: (res) => {
             if (res.access_token) {
-                localStorage.setItem('token', res.access_token)
+                setCookie('token', res.access_token, {
+                    expires: new Date(Date.now() + 24 * 60 * 60 * 1000)
+                })
 
                 if (userData) {
-                    setUser(userData)
+                    setUserReducer(userData)
                 }
                 toast.success('Login success!')
 

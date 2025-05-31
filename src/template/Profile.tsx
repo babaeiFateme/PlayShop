@@ -1,5 +1,5 @@
 'use client'
-import useUserStore from '@/core/store/userstore'
+import useUserStore from '@/core/store/user/user-store'
 import React from 'react'
 
 const Profile = () => {

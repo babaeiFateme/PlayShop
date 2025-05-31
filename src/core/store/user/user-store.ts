@@ -1,20 +1,15 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import ILoginFormType from '../types/login-form.types'
+import TUserStore from './user-store.types'
 
-type UserStore = {
-    user: ILoginFormType | null
-    setUser: (user: ILoginFormType) => void
-    logoutUser: () => void
-}
-
-const useUserStore = create<UserStore>()(
+const useUserStore = create<TUserStore>()(
     persist(
         (set) => ({
             user: null,
-            setUser: (userData) => set({ user: userData }),
+            setUserReducer: (userData) => set({ user: userData }),
             logoutUser: () => set({ user: null })
         }),
+        
         {
             name: 'user-storage',
             skipHydration: false

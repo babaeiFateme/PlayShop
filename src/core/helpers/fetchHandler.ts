@@ -1,11 +1,14 @@
+import { getCookie } from 'cookies-next'
+
 const fetchHandler = async (url: string, options: { method?: string; data?: unknown } = {}) => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     const { method = 'GET', data } = options
 
     let token = null
-    if (typeof window !== 'undefined') {
-        token = localStorage.getItem('token')
+
+    if (getCookie('token')) {
+        token = getCookie('token')
     }
 
     const headers: HeadersInit = {
