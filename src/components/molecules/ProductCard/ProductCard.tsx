@@ -24,7 +24,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
                     className='block mx-auto rounded-md aspect-[1] object-cover w-full'
                 />
 
-                <CBadge className='text-white' color='primary'>
+                <CBadge className='text-white text-sm' color='primary'>
                     {product?.category?.name}
                 </CBadge>
             </div>
