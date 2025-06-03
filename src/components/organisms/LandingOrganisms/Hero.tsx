@@ -32,7 +32,7 @@ const Hero = () => {
     ]
 
     return (
-        <div className='grid grid-cols-1 gap-2 lg:grid-cols-2 bg-[#F2F0F1] px-10 py-20'>
+        <div className='grid grid-cols-1 gap-2 lg:grid-cols-2 bg-[#F2F0F1] px-5 md:px-10 py-20'>
             <div>
                 <h1 className='font-bold lg:text-[60px] max-w-[600px]'>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
 
@@ -50,14 +50,14 @@ const Hero = () => {
                     Shop Now
                 </Button>
 
-                <ul className='flex gap-4 items-center flex-wrap mt-15'>
+                <ul className='flex gap-4 items-center mt-15'>
                     {approach.map((item) => (
                         <li
                             key={item.id}
                             className='flex flex-col gap-2 text-center border-l-1 border-gray-300 p-2 first:border-0'
                         >
                             <span className='text-md lg:text-3xl font-semibold'>{item.value}</span>
-                            <span className='text-gray-500'>{item.label}</span>
+                            <span className='text-gray-500 text-sm md:text-md'>{item.label}</span>
                         </li>
                     ))}
                 </ul>
