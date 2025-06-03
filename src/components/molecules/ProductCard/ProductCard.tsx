@@ -1,6 +1,8 @@
 import CBadge from '@/components/atoms/CBadge/CBadge'
+import ROUTES from '@/core/constants/routes/routes.constant'
 import IProduct from '@/core/types/product.types'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ProductCard = ({ product }: { product: IProduct }) => {
     const imageUrl = product?.images?.[0]
@@ -30,7 +32,9 @@ const ProductCard = ({ product }: { product: IProduct }) => {
             </div>
 
             <div className='flex flex-col gap-3 mt-3'>
-                <h3 className='line-clamp-1 font-semibold text-lg'>{product?.title}</h3>
+                <h3 className='line-clamp-1 font-semibold text-lg'>
+                    <Link href={`${ROUTES.Products}/${product?.slug}`}>{product?.title}</Link>
+                </h3>
 
                 <div className='line-clamp-2'>{product?.description}</div>
 
