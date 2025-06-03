@@ -6,12 +6,18 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params
 
     const API_ENDPOINTS = `${ROUTES.Products}/slug/${slug}`
-
     const fetchResponse = await fetchHandler(API_ENDPOINTS)
+
+    const RELATED_ENDPOINTS = `${ROUTES.Products}/slug/${slug}/related`
+    const fetchResponseRelated = await fetchHandler(RELATED_ENDPOINTS)
+
     return (
-        <div className='px-5 md:px-20 py-10'>
-            <ProductDetail product={fetchResponse} />
-        </div>
+        <ProductDetail
+            productEndPoint={API_ENDPOINTS}
+            product={fetchResponse}
+            related={fetchResponseRelated.slice(0,3)}
+            relatedEndPoint={RELATED_ENDPOINTS}
+        />
     )
 }
 
