@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../../../../public/images/general/logo.png'
 import Image from 'next/image'
 import FooterSection from '../../organisms/Footer/FooterSection'
@@ -11,6 +10,7 @@ import visa from '../../../../public/images/general/Visa.png'
 import paypal from '../../../../public/images/general/Paypal.png'
 import Subscribe from '@/components/organisms/Footer/Subscribe'
 import Link from 'next/link'
+import ROUTES from '@/core/constants/routes/routes.constant'
 
 const Footer = () => {
     return (
@@ -19,7 +19,7 @@ const Footer = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-[20px]'>
                 <div>
-                    <Link href='/'>
+                    <Link href={`${ROUTES.Landing}`}>
                         <Image src={logo.src} alt='shop' width={200} height={150} />
                     </Link>
 
@@ -37,29 +37,30 @@ const Footer = () => {
 
             <FooterBottom>
                 <hr />
+
                 <div className='flex justify-between items-center flex-wrap mt-4'>
                     <div>Shop.co © 2000-2023, All Rights Reserved</div>
 
                     <div>
                         <div className='flex gap-2 items-center *:max-w-[50px]'>
                             <div className='bg-white p-2 rounded-md'>
-                                <Image src={visa.src} alt='' width={100} height={100} />
+                                <Image src={visa.src} alt='visa' width={100} height={100} />
                             </div>
 
                             <div className='bg-white p-2 rounded-md'>
-                                <Image src={paypal.src} alt='' width={100} height={100} />
+                                <Image src={paypal.src} alt='paypal' width={100} height={100} />
                             </div>
 
                             <div className='bg-white p-2 rounded-md'>
-                                <Image src={applePay.src} alt='' width={100} height={100} />
+                                <Image src={applePay.src} alt='applePay' width={100} height={100} />
                             </div>
 
                             <div className='bg-white p-2 rounded-md'>
-                                <Image src={GPay.src} alt='' width={100} height={100} />
+                                <Image src={GPay.src} alt='GPay' width={100} height={100} />
                             </div>
 
                             <div className='bg-white p-2 rounded-md'>
-                                <Image src={master.src} alt='' width={100} height={100} />
+                                <Image src={master.src} alt='master' width={100} height={100} />
                             </div>
                         </div>
                     </div>
