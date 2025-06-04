@@ -45,7 +45,7 @@ const ProductDetail = ({
                         height={400}
                         src={product.images?.[0] || '/placeholder.jpg'}
                         alt={product.title}
-                        className='w-full aspect-[1.2] max-w-[700px] rounded-md object-cover'
+                        className='w-full aspect-[1.2] max-w-[300px] mx-auto md:mx-0 md:max-w-[700px] rounded-md object-cover'
                         loading='lazy'
                     />
                 </div>
