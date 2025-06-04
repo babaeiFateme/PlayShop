@@ -120,6 +120,26 @@ const Header = () => {
                     </div>
                 )}
 
+                {searchResult.length === 0 && searchTerm.trim() !== '' && (
+                    <div className='rounded-lg z-40 shadow-2xl bg-gray-50 max-h-[300px] overflow-y-auto  absolute top-16 w-full  p-2'>
+                         <div className='flex items-center flex-wrap justify-between'>
+                            <div>
+                                Search Result : <strong>{searchTerm}</strong>
+                            </div>
+                            <Button
+                                variant='outlined'
+                                onClick={() => {
+                                    setSearchTerm('')
+                                    setSearchResult([])
+                                }}
+                            >
+                                close
+                            </Button>
+                        </div>
+                        <EmptyState />
+                    </div>
+                )}
+
                 <Link href='/cart'>
                     <Shopping />
                 </Link>
