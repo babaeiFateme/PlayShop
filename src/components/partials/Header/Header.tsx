@@ -10,6 +10,7 @@ import fetchHandler from '@/core/helpers/fetchHandler'
 import useDebounce from '@/core/hooks/useDebounce'
 import IProduct from '@/core/types/product.types'
 import { Button } from '@mui/material'
+import EmptyState from '@/components/atoms/EmptyState/EmptyStates'
 
 const Header = () => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -48,19 +49,10 @@ const Header = () => {
             const response = await fetchHandler(`/products/?title=${debouncedValue}`)
 
             setSearchResult(response)
-
-            console.log(searchResult, 'search result')
-            console.log()
         }
 
         fetchData()
     }, [debouncedValue])
-
-    // const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    //     if (event.key === 'Enter') {
-    //         route.push(`${ROUTES.Products}`)
-    //     }
-    // }
 
     return (
         <div className='px-2 md:px-[40px] py-6 bg-white flex gap-4 items-center flex-wrap'>
@@ -85,8 +77,6 @@ const Header = () => {
                     className='border border-gray-2'
                     onChange={(e) => setSearchTerm(e.target.value)}
                     value={searchTerm}
-
-                    // onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyDown(e)}
                 />
                 {searchResult.length > 0 && (
                     <div className='rounded-lg z-40 shadow-2xl bg-gray-50 max-h-[300px] overflow-y-auto  absolute top-16 w-full  p-2'>
@@ -104,6 +94,7 @@ const Header = () => {
                                 close
                             </Button>
                         </div>
+
                         <ul className='p-0 '>
                             {searchResult.map((item: IProduct) => (
                                 <li
