@@ -63,7 +63,7 @@ const Hero = () => {
                 </ul>
             </div>
 
-            <div>
+            <div className='hidden md:block'>
                 <Image
                     src={banner.src}
                     alt='banner'
