@@ -32,7 +32,7 @@ const Hero = () => {
     ]
 
     return (
-        <div className='grid grid-cols-1 gap-2 lg:grid-cols-2 bg-[#F2F0F1] px-5 md:px-10 py-20'>
+        <div className='grid grid-cols-1 gap-2 lg:grid-cols-2 bg-[#F2F0F1] px-5 md:px-10 py-5 md:py-20'>
             <div>
                 <h1 className='font-bold lg:text-[60px] max-w-[600px]'>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
 

@@ -5,7 +5,7 @@ import TextInput from '@/components/atoms/TextInput/TextInput'
 import ROUTES from '@/core/constants/routes/routes.constant'
 import fetchHandler from '@/core/helpers/fetchHandler'
 import IProduct from '@/core/types/product.types'
-import { Button } from '@mui/material'
+import { Button, CircularProgress } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,10 +22,7 @@ const HeaderSearch = ({
 }) => {
     const showDropdown = debouncedValue.trim() !== ''
 
-    const {
-        data: searchResult = [],
-        isFetching,
-    } = useQuery<IProduct[]>({
+    const { data: searchResult = [], isFetching } = useQuery<IProduct[]>({
         queryKey: ['products', debouncedValue],
         queryFn: () => fetchHandler(`/products/?title=${debouncedValue}`),
         enabled: debouncedValue.trim().length > 0,
@@ -80,7 +77,9 @@ const HeaderSearch = ({
                             ))}
                         </ul>
                     ) : isFetching ? (
-                        <div>Loading...</div>
+                        <div className='flex justify-center my-4'>
+                            <CircularProgress />
+                        </div>
                     ) : (
                         <EmptyState />
                     )}

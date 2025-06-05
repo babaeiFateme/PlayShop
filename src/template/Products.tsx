@@ -19,10 +19,21 @@ const Products = ({ initialData }: { initialData: IProduct[] }) => {
     if (!data || !Array.isArray(data)) return <p>داده‌ای برای نمایش وجود ندارد.</p>
 
     return (
-        <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 px-2 lg:px-[40px] gap-8 md:max-w-[900px]  lg:max-w-[1200px] mx-auto'>
-            {data.map((product: IProduct) =>
-                isFetching ? <CardSkeleton key={product.id} /> : <ProductCard key={product.id} product={product} />
-            )}
+        <div className='block md:grid grid-cols-10 md:max-w-[900px] gap-5 lg:max-w-[1800px] mx-auto px-2 lg:px-[40px]'>
+            <div className='md:col-span-4 lg:col-span-3 hidden md:block'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, et.
+            </div>
+            <div className='md:col-span-6 lg:col-span-7'>
+                <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+                    {data.map((product: IProduct) =>
+                        isFetching ? (
+                            <CardSkeleton key={product.id} />
+                        ) : (
+                            <ProductCard key={product.id} product={product} />
+                        )
+                    )}
+                </div>
+            </div>
         </div>
     )
 }
